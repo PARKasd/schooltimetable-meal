@@ -15,7 +15,7 @@ logger.setLevel(logging.WARNING)
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='a')
 handler.setFormatter(logging.Formatter('[%(levelname)s] %(asctime)s - %(name)s: %(message)s'))
 logger.addHandler(handler)
-
+#로그 작성
 now = time.localtime()
 
 
@@ -27,7 +27,7 @@ async def on_ready():
 
     activity = discord.Activity(name="ㅎ ㅏ..학교 가기 싫다", type=discord.ActivityType.playing)
     await client.change_presence(activity=activity)
-
+#기본적인 로그인 확인, 상태메시지 설정
 
 @client.event
 async def on_message(message):
@@ -35,6 +35,7 @@ async def on_message(message):
 
     if message.author == client.user:
         return
+    #봇의 말에 대답하는것 방지
     if content == "k/오늘급식":
         data = datetime.today().strftime("%Y%m%d")
         url = f'https://open.neis.go.kr/hub/mealServiceDietInfo?key=(open.neis.go.kr 에서 받은 인증키)&Type=JSON&ATPT_OFCDC_SC_CODE=(교육청코드)&SD_SCHUL_CODE=(학교코드)&MLSV_YMD={data}'
@@ -48,6 +49,7 @@ async def on_message(message):
             await message.channel.send(f"오늘의 급식 \n {resulta}")
         except KeyError:
             await message.channel.send("오늘의 급식 정보가 아직 없어요 ㅠ")
+            
     if content.startswith("k/급식"):
         data = content.replace("k/급식 ","")
         url = f'https://open.neis.go.kr/hub/mealServiceDietInfo?key=(open.neis.go.kr에서 받은 인증키)&Type=JSON&ATPT_OFCDC_SC_CODE=(교육청코드)&SD_SCHUL_CODE=(학교코드)&MLSV_YMD={data}'
