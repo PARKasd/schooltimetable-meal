@@ -1,8 +1,8 @@
 # schooltimetable-meal
 급식 식단과 시간표를 알려주는 코드입니다.(초,중,고등학교)</br>
 파이썬 기반입니다</br>
-중학교에서 고등학교로 바꾸고 싶으면 mis 를 his 로 전부 바꿔주시면 됩니다. </br>
-초등학교로 바꾸고 싶으면 mis 를 els 로 바꿔주시면 됩니다.
+중학교는 middle.py, 고등학교는 high.py, 초등학교는 elementary.py를 쓰시면 됩니다 </br>
+
 
 # how to use
 1.https://open.neis.go.kr/portal/mainPage.do 에서 로그인해서 OPENAPI 키를 발급받습니다. </br>
