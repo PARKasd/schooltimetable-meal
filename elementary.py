@@ -78,6 +78,7 @@ async def on_message(message):
                 resulta = response_json['elsTimetable'][1]['row'][a]['ITRT_CNTNT']
                 await message.channel.send(resulta)
             except IndexError:
+                await message.channel.send("끝!")
                 break
 
 
